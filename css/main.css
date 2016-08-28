@@ -1,0 +1,36 @@
+.app {
+  width: 50%;
+  margin: 5rem auto;
+}
+
+.item-edit input {
+  width: 100%;
+  font-size: 1.2rem;
+  border: solid 1px black;
+  border-radius: 0.2rem;
+  padding: 0.5rem;
+}
+
+.items-list-header {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0.5rem 0 0.2rem;
+}
+
+.item {
+  padding: 1rem;
+}
+.item > div {
+  float: left;
+}
+.item .item-done-button, .item .item-delete-button {
+  width: 10%;
+  text-align: center;
+}
+.item .item-summary {
+  width: 80%;
+}
+.item.item-done .item-summary {
+  text-decoration: line-through;
+}

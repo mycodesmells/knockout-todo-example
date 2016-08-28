@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>KnockoutJS ToDo MVC</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-debug.js"></script>
+  </head>
+  <body>
+
+    <div class="app">
+      <div class="item-edit">
+        <input type="text" value="" placeholder="Add a task to do" data-bind="value: newSummary, valueUpdate: 'input', event: { keyup: addTask }">
+      </div>
+      <div class="items-list">
+        <div class="items-list-header">
+          List of things to do
+        </div>
+        <!-- ko foreach: tasks -->
+        <div class="item" data-bind="css: { 'item-done': done }">
+          <div class="item-done-button" data-bind="click: $parent.toggleDone">
+              <!-- ko if: done -->
+                <i class="fa fa-repeat" aria-hidden="true"></i>
+              <!-- /ko -->
+              <!-- ko if: !done -->
+                <i class="fa fa-check" aria-hidden="true"></i>
+              <!-- /ko -->
+          </div>
+          <div class="item-summary" data-bind="text: summary"></div>
+          <div class="item-delete-button" data-bind="click: $parent.removeTask"><i class="fa fa-trash" aria-hidden="true"></i></div>
+        </div>
+        <!-- /ko -->
+      </div>
+    </div>
+
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
+</html>
