@@ -13,7 +13,7 @@
 
     <div class="app">
       <div class="item-edit">
-        <input type="text" value="" placeholder="Add a task to do" data-bind="value: newSummary, valueUpdate: 'input', event: { keyup: addTask }">
+        <input type="text" value="" placeholder="Add a task to do" data-bind="value: task, event: { keyup: addTask }, valueUpdate: 'input'">
       </div>
       <div class="items-list">
         <div class="items-list-header">
@@ -22,15 +22,17 @@
         <!-- ko foreach: tasks -->
         <div class="item" data-bind="css: { 'item-done': done }">
           <div class="item-done-button" data-bind="click: $parent.toggleDone">
-              <!-- ko if: done -->
-                <i class="fa fa-repeat" aria-hidden="true"></i>
-              <!-- /ko -->
-              <!-- ko if: !done -->
-                <i class="fa fa-check" aria-hidden="true"></i>
-              <!-- /ko -->
+            <!-- ko if: done -->
+              <i class="fa fa-check-square-o" aria-hidden="true"></i>
+            <!-- /ko -->
+            <!-- ko if: !done -->
+              <i class="fa fa-square-o" aria-hidden="true"></i>
+            <!-- /ko -->
           </div>
-          <div class="item-summary" data-bind="text: summary"></div>
-          <div class="item-delete-button" data-bind="click: $parent.removeTask"><i class="fa fa-trash" aria-hidden="true"></i></div>
+          <div class="item-summary" data-bind="text: task"></div>
+          <div class="item-delete-button" data-bind="click: $parent.removeTask">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </div>
         </div>
         <!-- /ko -->
       </div>
